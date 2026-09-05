@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ReverseArray {
     public static void main(String[] args) {
         Solution sol = new Solution();
@@ -7,13 +9,15 @@ public class ReverseArray {
 }
 class Solution {
     public void reverse(int[] arr, int n) {
-        
-        if(n==1){
-            arr[n-1] = arr[arr.length-1];
-            System.out.println(arr[n-1]);
+        if(n<=arr.length/2){
+            System.out.println(Arrays.toString(arr));
             return;
         }
-        System.out.println(arr[n-1]);
+        int temp = arr[arr.length - n];
+        arr[arr.length - n] = arr[n-1] ;
+        arr[n-1] = temp;
         reverse(arr, n-1);
     }
 }
+
+
